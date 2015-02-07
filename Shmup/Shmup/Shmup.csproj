@@ -35,7 +35,10 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Game1.cs" />
+    <Compile Include="Animation\AnimatedSprite.cs" />
+    <Compile Include="Animation\Frame.cs" />
+    <Compile Include="Joueur.cs" />
+    <Compile Include="MonoShmup.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

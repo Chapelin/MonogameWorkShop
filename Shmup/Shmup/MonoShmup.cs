@@ -1,12 +1,10 @@
 ﻿#region Using Statements
-using System;
-using System.Collections.Generic;
+
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Storage;
-using Microsoft.Xna.Framework.GamerServices;
+using Shmup.Animation;
+
 #endregion
 
 namespace Shmup
@@ -14,15 +12,22 @@ namespace Shmup
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class Game1 : Game
+    public class MonoShmup : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        GraphicsDeviceManager _graphics;
+        SpriteBatch _spriteBatch;
+        private Joueur joueur;
 
-        public Game1()
+        public MonoShmup()
             : base()
         {
-            graphics = new GraphicsDeviceManager(this);
+            _graphics = new GraphicsDeviceManager(this)
+            {
+                PreferredBackBufferHeight = 600,
+                PreferredBackBufferWidth = 600
+            };
+
+            this.IsMouseVisible = true;
             Content.RootDirectory = "Content";
         }
 
@@ -34,8 +39,7 @@ namespace Shmup
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
+            this.joueur = new Joueur(this,new Vector2(400,400));
             base.Initialize();
         }
 
@@ -46,9 +50,7 @@ namespace Shmup
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            // TODO: use this.Content to load your game content here
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
         }
 
         /// <summary>
@@ -81,7 +83,7 @@ namespace Shmup
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
 
