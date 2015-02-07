@@ -4,6 +4,8 @@ namespace Shmup.Animation
 {
     public class Frame
     {
+
+        public static int INFINITEFRAME = -1;
         /// <summary>
         /// Texture de la frame
         /// </summary>
@@ -40,11 +42,7 @@ namespace Shmup.Animation
         /// <returns>True si la frame est finie</returns>
         public bool Tick()
         {
-            _compteur++;
-            var retour = _compteur >= _nombreTicks;
-            if (retour)
-                _compteur = 0;
-            return retour;
+            return Tick(1);
         }
 
         /// <summary>
@@ -54,9 +52,10 @@ namespace Shmup.Animation
         /// <returns>True si la frame est finie</returns>
         public bool Tick(float nombre)
         {
-            var retour = false;
+            if (this._nombreTicks == Frame.INFINITEFRAME)
+                return false;
             this._compteur += nombre;
-            retour = this._compteur >= this._nombreTicks;
+            var retour = this._compteur >= this._nombreTicks;
             if (retour)
                 this.Reset();
             return retour;
