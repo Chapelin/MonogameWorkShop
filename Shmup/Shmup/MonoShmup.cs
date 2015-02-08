@@ -3,7 +3,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Shmup.Animation;
 
 #endregion
 
@@ -16,7 +15,7 @@ namespace Shmup
     {
         GraphicsDeviceManager _graphics;
         SpriteBatch _spriteBatch;
-        private Joueur joueur;
+        private Joueur _joueur;
 
         public MonoShmup()
             : base()
@@ -39,7 +38,7 @@ namespace Shmup
         /// </summary>
         protected override void Initialize()
         {
-            this.joueur = new Joueur(this,new Vector2(400,400));
+            this._joueur = new Joueur(this,new Vector2(400,400));
             base.Initialize();
         }
 
