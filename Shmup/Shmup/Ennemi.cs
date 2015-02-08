@@ -8,19 +8,23 @@ using Shmup.Animation;
 
 namespace Shmup
 {
-    public class Ennemi : DrawableGameComponent
+    public class Ennemi : Vaisseau
     {
 
         private AnimatedSprite[] sprites;
         private SpriteBatch sb;
-        private Vector2 position;
 
-        public Ennemi(Game game, Vector2 initPost) : base(game)
+
+        public ComportementVaisseau comportement;
+
+
+        public Ennemi(Game game, Vector2 initPost)
+            : base(game, initPost)
         {
             this.Game.Components.Add(this);
-            this.position = initPost;
-
         }
+
+
 
         public override void Initialize()
         {
@@ -31,7 +35,7 @@ namespace Shmup
         protected override void LoadContent()
         {
             var stable = new AnimatedSprite();
-            stable.AjoutAnimationFrame(this.Game.Content.Load<Texture2D>("Vaisseaux\\composite\\ennemi0"),Frame.INFINITEFRAME);
+            stable.AjoutAnimationFrame(this.Game.Content.Load<Texture2D>("Vaisseaux\\composite\\ennemi0"), Frame.INFINITEFRAME);
             stable.InitialiserAnimation();
 
             var gauche = new AnimatedSprite();
@@ -43,25 +47,28 @@ namespace Shmup
             droite.InitialiserAnimation();
 
             this.sprites = new AnimatedSprite[3];
-            this.sprites[(int) MouvementHorizontal.Stable] = stable;
-            this.sprites[(int) MouvementHorizontal.Gauche] = gauche;
-            this.sprites[(int) MouvementHorizontal.Droite] = droite;
+            this.sprites[(int)MouvementHorizontal.Stable] = stable;
+            this.sprites[(int)MouvementHorizontal.Gauche] = gauche;
+            this.sprites[(int)MouvementHorizontal.Droite] = droite;
 
             base.LoadContent();
         }
 
         public override void Update(GameTime gameTime)
         {
-            
+            this.comportement.Update();
             base.Update(gameTime);
         }
 
 
         public override void Draw(GameTime gameTime)
         {
-            sb.Begin();
-            sb.Draw(this.sprites[(int)MouvementHorizontal.Stable].ActualSprite,this.position,Color.White);
-            sb.End();
+            if (base.IsVisible)
+            {
+                sb.Begin();
+                sb.Draw(this.sprites[(int)MouvementHorizontal.Stable].ActualSprite, this.Position, Color.White);
+                sb.End();
+            }
             base.Draw(gameTime);
         }
     }

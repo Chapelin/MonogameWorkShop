@@ -45,6 +45,7 @@ namespace Shmup
         {
             this._joueur = new Joueur(this, new Vector2(400, 400));
             this.ennemi = new Ennemi(this, new Vector2(150, 10));
+            this.ennemi.comportement = new ComportementVaisseau(this.ennemi).WaitToAppear(300).ThenMove(10000,2,2);
             var scoreComp = new ScoreComponent(this);
             this.Components.Add(scoreComp);
             base.Initialize();

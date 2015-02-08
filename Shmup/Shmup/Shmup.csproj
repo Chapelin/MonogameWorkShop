@@ -40,6 +40,13 @@
   <ItemGroup>
     <Compile Include="Animation\AnimatedSprite.cs" />
     <Compile Include="Animation\Frame.cs" />
+    <Compile Include="ComportementVaisseau.cs" />
+    <Compile Include="Comportement\BaseComportement.cs" />
+    <Compile Include="Comportement\IComportement.cs" />
+    <Compile Include="Comportement\Move.cs" />
+    <Compile Include="Comportement\Shoot.cs" />
+    <Compile Include="Comportement\ShootAndMove.cs" />
+    <Compile Include="Comportement\Wait.cs" />
     <Compile Include="Ennemi.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Joueur.cs" />
@@ -47,6 +54,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScoreComponent.cs" />
+    <Compile Include="Vaisseau.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
