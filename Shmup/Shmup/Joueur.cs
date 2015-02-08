@@ -5,12 +5,7 @@ using Shmup.Animation;
 
 namespace Shmup
 {
-    public enum MouvementHorizontal
-    {
-        Stable,
-        Droite,
-        Gauche
-    }
+  
 
     public class Joueur : DrawableGameComponent
     {

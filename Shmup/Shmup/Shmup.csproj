@@ -40,6 +40,8 @@
   <ItemGroup>
     <Compile Include="Animation\AnimatedSprite.cs" />
     <Compile Include="Animation\Frame.cs" />
+    <Compile Include="Ennemi.cs" />
+    <Compile Include="Enums.cs" />
     <Compile Include="Joueur.cs" />
     <Compile Include="MonoShmup.cs" />
     <Compile Include="Program.cs" />

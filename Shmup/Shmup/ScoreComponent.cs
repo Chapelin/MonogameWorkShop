@@ -8,7 +8,12 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Shmup
 {
-    public class ScoreComponent : DrawableGameComponent
+    public interface IScoreComponent
+    {
+        void AddScore(int nombreToAdd);
+    }
+
+    public class ScoreComponent : DrawableGameComponent, IScoreComponent
     {
 
         private int score;
@@ -19,8 +24,8 @@ namespace Shmup
         
         public ScoreComponent(MonoShmup game) : base(game)
         {
+            this.Game.Services.AddService(typeof(IScoreComponent),this);
             
-            this.Game.Components.Add(this);
         }
 
         public override void Initialize()

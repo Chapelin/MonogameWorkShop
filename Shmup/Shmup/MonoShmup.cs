@@ -1,5 +1,6 @@
 ﻿#region Using Statements
 
+using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -16,7 +17,10 @@ namespace Shmup
         GraphicsDeviceManager _graphics;
         SpriteBatch _spriteBatch;
         private Joueur _joueur;
-        private ScoreComponent scoreComp;
+
+        private Ennemi ennemi;
+
+
 
         public MonoShmup()
             : base()
@@ -40,7 +44,9 @@ namespace Shmup
         protected override void Initialize()
         {
             this._joueur = new Joueur(this, new Vector2(400, 400));
-            this.scoreComp = new ScoreComponent(this);
+            this.ennemi = new Ennemi(this, new Vector2(150, 10));
+            var scoreComp = new ScoreComponent(this);
+            this.Components.Add(scoreComp);
             base.Initialize();
         }
 
