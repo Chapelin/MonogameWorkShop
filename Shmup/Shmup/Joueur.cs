@@ -1,11 +1,10 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Shmup.Animation;
-
-namespace Shmup
+﻿namespace Shmup
 {
-  
+    using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Graphics;
+    using Microsoft.Xna.Framework.Input;
+
+    using Shmup.Animation;
 
     public class Joueur : DrawableGameComponent
     {
@@ -42,6 +41,7 @@ namespace Shmup
                 {
                     mouvementToapply = MouvementHorizontal.Stable;
                 }
+
             if (mouvementToapply != _currentMovementHorizontal)
             {
                 this._spritesMouvement[(int)_currentMovementHorizontal].InitialiserAnimation();
@@ -60,7 +60,7 @@ namespace Shmup
             base.Initialize();
         }
 
-       
+
         public override void Draw(GameTime gameTime)
         {
             this._sb.Begin();

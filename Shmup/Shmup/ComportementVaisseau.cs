@@ -26,25 +26,25 @@ namespace Shmup
 
         public ComportementVaisseau WaitToAppear(int nombreFrame)
         {
-            this.listComportements.Add(new Wait(this.v,nombreFrame));
+            this.listComportements.Add(new Wait(this.v, nombreFrame));
             return this;
         }
 
-        public ComportementVaisseau ThenMakeShoot(int nbreFrame,int frequence)
+        public ComportementVaisseau ThenMakeShoot(int nbreFrame, int frequence)
         {
-            this.listComportements.Add(new Shoot(this.v,nbreFrame,frequence));
+            this.listComportements.Add(new Shoot(this.v, nbreFrame, frequence));
             return this;
         }
 
         public ComportementVaisseau ThenMove(int nbreFrame, int deplacementX, int deplacementY)
         {
-            this.listComportements.Add(new Move(this.v, new Vector2(deplacementX,deplacementY),nbreFrame ));
+            this.listComportements.Add(new Move(this.v, new Vector2(deplacementX, deplacementY), nbreFrame));
             return this;
         }
 
-        public ComportementVaisseau ThenShootAndMove(int nbreFrame, int frq,int deplacementX, int deplacementY)
+        public ComportementVaisseau ThenShootAndMove(int nbreFrame, int frq, int deplacementX, int deplacementY)
         {
-            listComportements.Add(new ShootAndMove(this.v,nbreFrame,frq,new Vector2(deplacementX,deplacementY)));
+            listComportements.Add(new ShootAndMove(this.v, nbreFrame, frq, new Vector2(deplacementX, deplacementY)));
             return this;
         }
 
@@ -57,7 +57,7 @@ namespace Shmup
             this.curentComportement.Update();
             if (this.curentComportement.IsFinished)
             {
-                this.SetCurrentComportement(this.currentComportementIndex+1);
+                this.SetCurrentComportement(this.currentComportementIndex + 1);
             }
         }
 

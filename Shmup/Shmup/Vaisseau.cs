@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework;
-
-namespace Shmup
+﻿namespace Shmup
 {
+    using Microsoft.Xna.Framework;
+
     public class Vaisseau : DrawableGameComponent
     {
         public bool IsVisible;
@@ -15,7 +11,6 @@ namespace Shmup
         public Vaisseau(Game game, Vector2 initPost)
             : base(game)
         {
-           
             this.Position = initPost;
         }
 
