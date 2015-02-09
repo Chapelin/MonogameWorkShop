@@ -50,6 +50,8 @@
     <Compile Include="Ennemi.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Joueur.cs" />
+    <Compile Include="Missile.cs" />
+    <Compile Include="MissileCreatorService.cs" />
     <Compile Include="MonoShmup.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

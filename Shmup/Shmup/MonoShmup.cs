@@ -18,6 +18,8 @@ namespace Shmup
         SpriteBatch _spriteBatch;
         private Joueur _joueur;
 
+        private Missile ms;
+
         private Ennemi ennemi;
 
 
@@ -46,6 +48,10 @@ namespace Shmup
             this._joueur = new Joueur(this, new Vector2(400, 400));
             this.ennemi = new Ennemi(this, new Vector2(150, 10));
             this.ennemi.comportement = new ComportementVaisseau(this.ennemi).WaitToAppear(300).ThenMove(10000,2,2);
+            this.ms = new Missile(this);
+            this.Components.Add(this.ms);
+            this.ms.Position = new Vector2(30,30);
+            this.ms.Vitesse = new Vector2(0,5);
             var scoreComp = new ScoreComponent(this);
             this.Components.Add(scoreComp);
             base.Initialize();
